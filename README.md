@@ -61,20 +61,15 @@ Replace the above links with your actual Vercel and Render deployment URLs.
 ```bash
 task-manager-app/
 │
-├── backend/
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Task.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── context/
+│   │   └── App.jsx
 │   │
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   └── taskRoutes.js
-│   │
-│   ├── middleware/
-│   │   ├── authMiddleware.js
-│   │   └── errorMiddleware.js
-│   │
-│   ├── server.js
 │   ├── package.json
 │   └── .env
-│__ __ README.md
+│
+└── README.md
