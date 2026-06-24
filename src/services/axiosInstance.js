@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: import.meta.env.VITE_API_URL || "https://task-manager-backend-0c0w.onrender.com/api",
 });
 
-// REQUEST INTERCEPTOR
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -15,25 +14,20 @@ axiosInstance.interceptors.request.use(
 
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// RESPONSE INTERCEPTOR
 axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (response) => response,
   (error) => {
     const status = error.response?.status;
     const requestUrl = error.config?.url || "";
 
-    const isAuthPageRequest =
+    const isAuthRequest =
       requestUrl.includes("/auth/login") ||
       requestUrl.includes("/auth/register");
 
-    if (status === 401 && !isAuthPageRequest) {
+    if (status === 401 && !isAuthRequest) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
 
