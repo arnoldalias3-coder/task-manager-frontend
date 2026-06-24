@@ -1,17 +1,31 @@
 import axios from "axios";
 
-const API_BASE_URL =
+const RAW_API_URL =
   import.meta.env.VITE_API_URL ||
   "https://task-manager-backend-3-l09z.onrender.com/api";
 
+// Removes ending slash if accidentally added
+const API_BASE_URL = RAW_API_URL.replace(/\/$/, "");
+
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 // Add JWT token to every request if available
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
+
+    // Safety fix:
+    // If you accidentally call "/api/auth/register",
+    // it changes it to "/auth/register"
+    // because baseURL already ends with "/api"
+    if (config.url?.startsWith("/api/")) {
+      config.url = config.url.replace(/^\/api/, "");
+    }
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
