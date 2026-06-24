@@ -5,14 +5,7 @@ A full-stack Task Manager application built using the MERN stack. The app allows
 ## Live Demo
 
 Frontend Live Link:  
-https://your-frontend-link.vercel.app
-
-Backend API Link:  
-https://your-backend-link.onrender.com/api
-
-Replace the above links with your actual Vercel and Render deployment URLs.
-
----
+https://task-manager-frontend-4pzzqaqcr-arnoldalias3-coders-projects.vercel.app
 
 ## Tech Stack
 
