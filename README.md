@@ -1,16 +1,80 @@
-# React + Vite
+# Task Manager App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Task Manager application built using the MERN stack. The app allows users to register, log in, create tasks, update tasks, delete tasks, filter tasks, and manage their personal task list securely.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Frontend Live Link:  
+https://your-frontend-link.vercel.app
 
-## React Compiler
+Backend API Link:  
+https://your-backend-link.onrender.com/api
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Replace the above links with your actual Vercel and Render deployment URLs.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- React Router DOM
+- Axios
+- CSS
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JSON Web Token Authentication
+- bcrypt.js
+- dotenv
+- CORS
+
+### Deployment
+- Frontend: Vercel
+- Backend: Render
+- Database: MongoDB Atlas
+
+---
+
+## Features
+
+- User registration and login
+- JWT-based authentication
+- Protected routes
+- Create new tasks
+- View all user-specific tasks
+- Edit existing tasks
+- Delete tasks
+- Mark tasks as completed
+- Filter tasks by status and priority
+- Search tasks by title
+- Responsive user interface
+
+---
+
+## Project Structure
+
+```bash
+task-manager-app/
+│
+├── backend/
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Task.js
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── taskRoutes.js
+│   │
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   └── errorMiddleware.js
+│   │
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│__ __ README.md
