@@ -1,9 +1,14 @@
 import axios from "axios";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  "https://task-manager-backend-3-l09z.onrender.com/api";
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://task-manager-backend-0c0w.onrender.com/api",
+  baseURL: API_BASE_URL,
 });
 
+// Add JWT token to every request if available
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -17,6 +22,7 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// Handle expired/invalid token
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
